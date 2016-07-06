@@ -74,6 +74,9 @@ cd /srv/letsencrypt
 ./letsencrypt-auto-source/letsencrypt-auto --help
 cd /
 
+# change localetime
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 # Install PHPExcel
 echo '' >> /etc/php5/fpm/php-fpm.conf
 echo 'php_value[include_path] = "/srv/phabricator/PHPExcel/Classes"' >> /etc/php5/fpm/php-fpm.conf
