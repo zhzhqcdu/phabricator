@@ -188,11 +188,14 @@ if [ "$PHABRICATOR_CDN" != "" ]; then
   fi
 fi
 sudo -u git ./bin/config set phd.user 'git'
+sudo -u git ./bin/config set pygments.enabled true
+
+# git repository config
 sudo -u git ./bin/config set security.require-https true
 sudo -u git ./bin/config set diffusion.allow-http-auth true
 sudo -u git ln -s /usr/lib/git/git-http-backend /usr/bin
 sudo -u git ./bin/config set diffusion.ssh-user 'git'
-sudo -u git ./bin/config set pygments.enabled true
+
 if [ "$PHABRICATOR_REPOSITORY_PATH" != "" ]; then
   sudo -u git ./bin/config set repository.default-local-path "$PHABRICATOR_REPOSITORY_PATH"
 fi
